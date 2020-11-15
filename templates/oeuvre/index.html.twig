@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Oeuvres{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Liste des Oeuvres</h1>
+
+    <div class="container-fluid">
+        {% for oeuvre in oeuvres %}
+
+            <a href="{{ path('oeuvre') }}?id={{oeuvre.id}}"><img src="images\{{ oeuvre.getPetite_image}}" alt="" class="padding1 w-30 mb-2 rounded1">
+
+        {% endfor %}
+    </div>
+    <a href="{{ path('oeuvre_create') }}" class="btn-secondary pad2">Ajouter une oeuvre</a>
+        
+{% endblock %}
+

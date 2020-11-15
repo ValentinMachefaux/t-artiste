@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{oeuvre.getTitre()}}{% endblock %}
+
+{% block body %}
+
+    <h1>{{ oeuvre.getTitre() }}</h1>
+    
+    <div>
+        <img src="images/{{oeuvre.grande_image}}" alt="" srcset="">
+        <p>Année : {{ oeuvre.getAnnee() }}</p>
+        <p>Technique utiliser : {{ oeuvre.getTechnique() }}</p>
+        <p>Support : {{ oeuvre.getSupport() }}</p>
+        <p>Largeur : {{ oeuvre.getLargeur() }} cm</p>
+        <p>Hauteur : {{ oeuvre.getHauteur() }} cm</p>
+        <p>Prix : {{ oeuvre.getPrix() }}€</p>
+    </div>
+
+    <a href="{{ path('oeuvres') }}">Retour à la liste des oeuvres</a>
+        
+{% endblock %}

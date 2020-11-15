@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Expositions{% endblock %}
+
+
+{% block body %}
+ 
+     <h1>Exposition n°{{exposition.id}}</h1>
+
+    
+        <h2>Nom de l'exposition : {{ exposition.getNom() }}</h2>
+        <p>Lieu : {{ exposition.getLieu() }}</p>
+        <p>Adresse : {{ exposition.getAdresse() }}</p>
+        <p>Date de début : {{ exposition.getdateDebut|date('Y-m-d') }}</p>
+        <p>Date de fin : {{ exposition.getdateFin|date(('Y-m-d')) }}</p>
+        <p>Date du vernissage : {{ exposition.getdateVernissage|date(('Y-m-d H-i-s')) }}</p> <br>
+    
+   <a href="{{ path('expositions') }}">Retour a la liste des expositions</a>
+
+{% endblock %}
