@@ -8,7 +8,7 @@
     <div class="container-fluid">
         {% for oeuvre in oeuvres %}
 
-            <a href="{{ path('oeuvre') }}?id={{oeuvre.id}}"><img src="images\{{ oeuvre.getPetite_image}}" alt="" class="padding1 w-30 mb-2 rounded1">
+            <a href="{{ path('oeuvre') }}?id={{oeuvre.id}}"><img src="images\{{ oeuvre.getPetiteImage}}" alt="" class="padding1 w-30 mb-2 rounded1">
 
         {% endfor %}
     </div>

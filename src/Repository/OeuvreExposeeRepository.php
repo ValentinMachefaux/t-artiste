@@ -29,7 +29,7 @@ class OeuvreExposeeRepository extends ServiceEntityRepository
     // {
     //     return $this->createQueryBuilder('o')
     //         ->from(Oeuvre::class,'oe')
-    //         ->innerJoin(OeuvreExposee::class,'e',Join::WITH,'o.id = e.id_oeuvre') 
+    //         ->innerJoin(OeuvreExposee::class,'e',Join::WITH,'oe.id = e.id_oeuvre') 
     //         ->where('e.id_exposition = :val')
     //         ->setParameter('val',$value)
     //         ->getQuery()
@@ -51,6 +51,17 @@ class OeuvreExposeeRepository extends ServiceEntityRepository
     //     return $stmt->fetchAllAssociative();
     // }
     
+    public function jointure($value)
+    {
+        $conn = $this->getEntityManager();
+        $sql=$conn-> createQuery('
+                SELECT o FROM App\Entity\OeuvreExposee oe
+                INNER JOIN App\Entity\Oeuvre o WITH o.id = oe.id_oeuvre 
+                INNER JOIN App\Entity\Exposition e WITH e.id = oe.id_exposition
+                WHERE e.id ='.$value
+            );
+        return $sql->getResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?OeuvreExposee

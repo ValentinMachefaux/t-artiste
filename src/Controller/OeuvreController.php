@@ -50,8 +50,8 @@ class OeuvreController extends AbstractController
             ->add('largeur', IntegerType::class)
             ->add('hauteur', IntegerType::class)
             ->add('prix', IntegerType::class)
-            ->add('petite_image', TextType::class)
-            ->add('grande_image', TextType::class)
+            ->add('petiteimage', TextType::class)
+            ->add('grandeimage', TextType::class)
             ->add('submit', SubmitType::class)
             ->getForm();
             
@@ -68,8 +68,8 @@ class OeuvreController extends AbstractController
             $oeuvre->setLargeur($data['largeur']);
             $oeuvre->setHauteur($data['hauteur']);
             $oeuvre->setPrix($data['prix']);
-            $oeuvre->setPetite_image($data['petite_image']);
-            $oeuvre->setGrande_image($data['grande_image']);
+            $oeuvre->setPetite_image($data['petiteimage']);
+            $oeuvre->setGrande_image($data['grandeimage']);
 
             $em->persist($oeuvre);
             $em->flush();

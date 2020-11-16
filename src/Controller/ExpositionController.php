@@ -31,14 +31,23 @@ class ExpositionController extends AbstractController
      */
     public function expositionUn(EntityManagerInterface $em): Response
     {
-        $repo = $em->getRepository(Exposition::class);
-        $exposition = $repo->find($_GET['id']);
+        // $repo = $em->getRepository(Exposition::class);
+        // $exposition = $repo->find($_GET['id']);
         
-        return $this->render('exposition/exposition.html.twig', ['exposition' => $exposition]);
+        // return $this->render('exposition/exposition.html.twig', ['exposition' => $exposition]);
 
         // $repo = $em->getRepository(OeuvreExposee::class);
         // $exposition = $repo->jointure($_GET['id']);
         // return $this->render('exposition/exposition.html.twig', ['exposition' => $exposition]);
+
+        $repo = $em->getRepository(Exposition::class);
+        $exposition = $repo->find($_GET['id']);
+
+        $repo2 = $em->getRepository(OeuvreExposee::class);
+        $expositions = $repo2->jointure($_GET['id']);
+
+        return $this->render('exposition/exposition.html.twig', ['exposition' => $exposition,'expositions' => $expositions]);
+
     }
 
     /**

@@ -10,19 +10,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class OeuvreExposee
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    // /**
+    //  
+    //  * @ORM\GeneratedValue
+    //  * @ORM\Column(type="integer")
+    //  */
+    // private $id;
 
     /**
+     * @ORM\Id
      * @ORM\Column(type="integer")
      */
     private $id_exposition;
 
     /**
+     * @ORM\Id
      * @ORM\Column(type="integer")
      */
     private $id_oeuvre;
@@ -32,10 +34,10 @@ class OeuvreExposee
      */
     private $prix;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    // public function getId(): ?int
+    // {
+    //     return $this->id;
+    // }
 
     public function getIdExposition(): ?int
     {

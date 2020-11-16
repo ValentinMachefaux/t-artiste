@@ -55,12 +55,17 @@ class Oeuvre
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $petite_image;
+    private $petiteImage;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $grande_image;
+    private $grandeImage;
+
+    public function __toString(): string
+    {
+        return $this->titre." ".$thisannee;
+    }
 
     public function getId(): ?int
     {
@@ -151,26 +156,26 @@ class Oeuvre
         return $this;
     }
 
-    public function getPetite_image(): ?string
+    public function getPetiteImage(): ?string
     {
-        return $this->petite_image;
+        return $this->petiteImage;
     }
 
-    public function setPetite_image(string $petite_image): self
+    public function setPetiteImage(string $petiteImage): self
     {
-        $this->petite_image = $petite_image;
+        $this->petiteImage = $petiteImage;
 
         return $this;
     }
 
-    public function getGrande_image(): ?string
+    public function getGrandeImage(): ?string
     {
-        return $this->grande_image;
+        return $this->grandeImage;
     }
 
-    public function setGrande_image(string $grande_image): self
+    public function setGrandeImage(string $grandeImage): self
     {
-        $this->grande_image = $grande_image;
+        $this->grandeImage = $grandeImage;
 
         return $this;
     }
